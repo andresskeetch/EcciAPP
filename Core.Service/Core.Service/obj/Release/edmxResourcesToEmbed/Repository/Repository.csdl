@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="APP_ECCI_MODEL" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="APP_ECCI_ENTITIES" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Class" EntityType="APP_ECCI_MODEL.Class" />
+    <EntitySet Name="ClassRoom" EntityType="APP_ECCI_MODEL.ClassRoom" />
+    <EntitySet Name="Course" EntityType="APP_ECCI_MODEL.Course" />
+    <EntitySet Name="Person" EntityType="APP_ECCI_MODEL.Person" />
+    <EntitySet Name="Role" EntityType="APP_ECCI_MODEL.Role" />
+    <EntitySet Name="Schedule" EntityType="APP_ECCI_MODEL.Schedule" />
+    <EntitySet Name="ScheduleAll" EntityType="APP_ECCI_MODEL.ScheduleAll" />
+    <EntitySet Name="Seat" EntityType="APP_ECCI_MODEL.Seat" />
+    <EntitySet Name="sysdiagrams" EntityType="APP_ECCI_MODEL.sysdiagrams" />
+    <EntitySet Name="User" EntityType="APP_ECCI_MODEL.User" />
+    <AssociationSet Name="FK__Class__ClassRoom__239E4DCF" Association="APP_ECCI_MODEL.FK__Class__ClassRoom__239E4DCF">
+      <End Role="ClassRoom" EntitySet="ClassRoom" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Class__CourseID__24927208" Association="APP_ECCI_MODEL.FK__Class__CourseID__24927208">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Class__TeacherID__25869641" Association="APP_ECCI_MODEL.FK__Class__TeacherID__25869641">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Schedule__ClassI__29572725" Association="APP_ECCI_MODEL.FK__Schedule__ClassI__29572725">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ScheduleA__Class__2A4B4B5E" Association="APP_ECCI_MODEL.FK__ScheduleA__Class__2A4B4B5E">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="ScheduleAll" EntitySet="ScheduleAll" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClassRoom__SeatI__267ABA7A" Association="APP_ECCI_MODEL.FK__ClassRoom__SeatI__267ABA7A">
+      <End Role="Seat" EntitySet="Seat" />
+      <End Role="ClassRoom" EntitySet="ClassRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__PersonID__2B3F6F97" Association="APP_ECCI_MODEL.FK__User__PersonID__2B3F6F97">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="PersonClass" Association="APP_ECCI_MODEL.PersonClass">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="UserRole" Association="APP_ECCI_MODEL.UserRole">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassID" />
+    </Key>
+    <Property Name="ClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CourseID" Type="Int32" />
+    <Property Name="ClassRoomID" Type="Int32" />
+    <Property Name="TeacherID" Type="Int32" />
+    <NavigationProperty Name="ClassRoom" Relationship="APP_ECCI_MODEL.FK__Class__ClassRoom__239E4DCF" FromRole="Class" ToRole="ClassRoom" />
+    <NavigationProperty Name="Course" Relationship="APP_ECCI_MODEL.FK__Class__CourseID__24927208" FromRole="Class" ToRole="Course" />
+    <NavigationProperty Name="Person" Relationship="APP_ECCI_MODEL.FK__Class__TeacherID__25869641" FromRole="Class" ToRole="Person" />
+    <NavigationProperty Name="Schedule" Relationship="APP_ECCI_MODEL.FK__Schedule__ClassI__29572725" FromRole="Class" ToRole="Schedule" />
+    <NavigationProperty Name="ScheduleAll" Relationship="APP_ECCI_MODEL.FK__ScheduleA__Class__2A4B4B5E" FromRole="Class" ToRole="ScheduleAll" />
+    <NavigationProperty Name="Person1" Relationship="APP_ECCI_MODEL.PersonClass" FromRole="Class" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="ClassRoom">
+    <Key>
+      <PropertyRef Name="ClassRoomID" />
+    </Key>
+    <Property Name="ClassRoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SeatID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Class" Relationship="APP_ECCI_MODEL.FK__Class__ClassRoom__239E4DCF" FromRole="ClassRoom" ToRole="Class" />
+    <NavigationProperty Name="Seat" Relationship="APP_ECCI_MODEL.FK__ClassRoom__SeatI__267ABA7A" FromRole="ClassRoom" ToRole="Seat" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Class" Relationship="APP_ECCI_MODEL.FK__Class__CourseID__24927208" FromRole="Course" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Class" Relationship="APP_ECCI_MODEL.FK__Class__TeacherID__25869641" FromRole="Person" ToRole="Class" />
+    <NavigationProperty Name="User" Relationship="APP_ECCI_MODEL.FK__User__PersonID__2B3F6F97" FromRole="Person" ToRole="User" />
+    <NavigationProperty Name="Class1" Relationship="APP_ECCI_MODEL.PersonClass" FromRole="Person" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RolID" />
+    </Key>
+    <Property Name="RolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="APP_ECCI_MODEL.UserRole" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+    </Key>
+    <Property Name="ScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="DayOfWeek" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Hour" Type="Int32" />
+    <NavigationProperty Name="Class" Relationship="APP_ECCI_MODEL.FK__Schedule__ClassI__29572725" FromRole="Schedule" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="ScheduleAll">
+    <Key>
+      <PropertyRef Name="ScheduleAllID" />
+    </Key>
+    <Property Name="ScheduleAllID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Class" Relationship="APP_ECCI_MODEL.FK__ScheduleA__Class__2A4B4B5E" FromRole="ScheduleAll" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="SeatID" />
+    </Key>
+    <Property Name="SeatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ClassRoom" Relationship="APP_ECCI_MODEL.FK__ClassRoom__SeatI__267ABA7A" FromRole="Seat" ToRole="ClassRoom" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonID" Type="Int32" />
+    <NavigationProperty Name="Person" Relationship="APP_ECCI_MODEL.FK__User__PersonID__2B3F6F97" FromRole="User" ToRole="Person" />
+    <NavigationProperty Name="Role" Relationship="APP_ECCI_MODEL.UserRole" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK__Class__ClassRoom__239E4DCF">
+    <End Type="APP_ECCI_MODEL.ClassRoom" Role="ClassRoom" Multiplicity="0..1" />
+    <End Type="APP_ECCI_MODEL.Class" Role="Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassRoom">
+        <PropertyRef Name="ClassRoomID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="ClassRoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Class__CourseID__24927208">
+    <End Type="APP_ECCI_MODEL.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="APP_ECCI_MODEL.Class" Role="Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Class__TeacherID__25869641">
+    <End Type="APP_ECCI_MODEL.Person" Role="Person" Multiplicity="0..1" />
+    <End Type="APP_ECCI_MODEL.Class" Role="Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Schedule__ClassI__29572725">
+    <End Type="APP_ECCI_MODEL.Class" Role="Class" Multiplicity="0..1" />
+    <End Type="APP_ECCI_MODEL.Schedule" Role="Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassID" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ScheduleA__Class__2A4B4B5E">
+    <End Type="APP_ECCI_MODEL.Class" Role="Class" Multiplicity="0..1" />
+    <End Type="APP_ECCI_MODEL.ScheduleAll" Role="ScheduleAll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassID" />
+      </Principal>
+      <Dependent Role="ScheduleAll">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClassRoom__SeatI__267ABA7A">
+    <End Type="APP_ECCI_MODEL.Seat" Role="Seat" Multiplicity="0..1" />
+    <End Type="APP_ECCI_MODEL.ClassRoom" Role="ClassRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seat">
+        <PropertyRef Name="SeatID" />
+      </Principal>
+      <Dependent Role="ClassRoom">
+        <PropertyRef Name="SeatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__PersonID__2B3F6F97">
+    <End Type="APP_ECCI_MODEL.Person" Role="Person" Multiplicity="0..1" />
+    <End Type="APP_ECCI_MODEL.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonClass">
+    <End Type="APP_ECCI_MODEL.Class" Role="Class" Multiplicity="*" />
+    <End Type="APP_ECCI_MODEL.Person" Role="Person" Multiplicity="*" />
+  </Association>
+  <Association Name="UserRole">
+    <End Type="APP_ECCI_MODEL.Role" Role="Role" Multiplicity="*" />
+    <End Type="APP_ECCI_MODEL.User" Role="User" Multiplicity="*" />
+  </Association>
+</Schema>

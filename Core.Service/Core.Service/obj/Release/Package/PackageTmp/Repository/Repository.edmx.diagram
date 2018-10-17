@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="87fceb03e5e64ec0b6cf749a3015a545" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.Class" Width="1.5" PointX="5.25" PointY="3.5" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.ClassRoom" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.Course" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.Person" Width="1.5" PointX="7.5" PointY="1.25" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.Role" Width="1.5" PointX="7.5" PointY="10.75" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.Schedule" Width="1.5" PointX="7.5" PointY="7" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.ScheduleAll" Width="1.5" PointX="7.5" PointY="4.5" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.Seat" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.User" Width="1.5" PointX="9.75" PointY="1.375" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__Class__ClassRoom__239E4DCF" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__Class__CourseID__24927208" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__Class__TeacherID__25869641" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__Schedule__ClassI__29572725" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__ScheduleA__Class__2A4B4B5E" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__ClassRoom__SeatI__267ABA7A" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__User__PersonID__2B3F6F97" />
+        <AssociationConnector Association="APP_ECCI_MODEL.PersonClass" />
+        <AssociationConnector Association="APP_ECCI_MODEL.UserRole" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
