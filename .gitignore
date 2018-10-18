@@ -3,3 +3,4 @@
 *.cache
 **\obj\debug
 **\obj\release
+*.lock
