@@ -9,9 +9,11 @@ using Core.Models.Models;
 
 namespace Core.Service.Controllers
 {
+    [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
-        public IHttpActionResult Login(Login user) {
+        public IHttpActionResult Login(Login user)
+        {
             try
             {
                 return Ok(AccountLogic.Authenticate(user));

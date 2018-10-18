@@ -12,5 +12,6 @@ namespace Core.Models.Models
         public string UserName { get; set; }
         public string Password { get; set; }
         public Authorization authorization { get; set; }
+        public AccountViewModel User { get; set; }
     }
 }

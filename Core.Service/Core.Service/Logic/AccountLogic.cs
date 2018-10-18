@@ -4,24 +4,29 @@ using System.Linq;
 using System.Web;
 using Core.Service.Repository;
 using Core.Models.Models;
+using Core.Service.Mappings;
 
 namespace Core.Service.Logic
 {
-    
+
     public static class AccountLogic
     {
         private static APP_ECCI_ENTITIES db = new APP_ECCI_ENTITIES();
 
-        public static Login Authenticate (Login user) {
+        public static Login Authenticate(Login user)
+        {
             User account = db.User.Where(f => f.UserName == user.UserName && f.Password == user.Password).FirstOrDefault();
-            if (account != null) {
+            if (account != null)
+            {
                 return new Login()
                 {
                     authorization = Models.Enums.Authorization.IsAuthenticated,
-                    UserName = user.UserName
+                    UserName = user.UserName,
+                    User = AccountMapping.MapToViewModel(account)
                 };
-            }   
-            else {
+            }
+            else
+            {
                 return new Login()
                 {
                     authorization = Models.Enums.Authorization.IncorrectUserPassword,
@@ -35,13 +40,14 @@ namespace Core.Service.Logic
 
             if (account != null)
             {
-                
+
             }
 
 
             return account;
         }
-        public static IEnumerable<Role> GetRoles(int UserID) {
+        public static IEnumerable<Role> GetRoles(int UserID)
+        {
             return db.Role.Where(f => f.User.Where(t => t.UserID == UserID).Any());
         }
     }

@@ -3,3 +3,9 @@ C:\Users\Andres\Documents\Visual Studio 2013\Projects\Core.Service\Core.Models\b
 C:\Users\Andres\Documents\Visual Studio 2013\Projects\Core.Service\Core.Models\obj\Debug\Core.Models.csprojResolveAssemblyReference.cache
 C:\Users\Andres\Documents\Visual Studio 2013\Projects\Core.Service\Core.Models\obj\Debug\Core.Models.dll
 C:\Users\Andres\Documents\Visual Studio 2013\Projects\Core.Service\Core.Models\obj\Debug\Core.Models.pdb
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\bin\Debug\Core.Models.dll
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\bin\Debug\Core.Models.pdb
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\obj\Debug\Core.Models.csprojResolveAssemblyReference.cache
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\obj\Debug\Core.Models.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\obj\Debug\Core.Models.dll
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\obj\Debug\Core.Models.pdb
