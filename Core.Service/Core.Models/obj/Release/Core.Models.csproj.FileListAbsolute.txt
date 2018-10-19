@@ -1,0 +1,6 @@
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\bin\Release\Core.Models.dll
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\bin\Release\Core.Models.pdb
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\obj\Release\Core.Models.csprojResolveAssemblyReference.cache
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\obj\Release\Core.Models.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\obj\Release\Core.Models.dll
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\Core.Service\Core.Models\obj\Release\Core.Models.pdb

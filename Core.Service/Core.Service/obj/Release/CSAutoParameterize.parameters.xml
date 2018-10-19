@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="APP_ECCI_ENTITIES-Web.config Connection String" description="APP_ECCI_ENTITIES Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/Repository.Repository.csdl|res://*/Repository.Repository.ssdl|res://*/Repository.Repository.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=sql5007.site4now.net;Initial Catalog=DB_A35B11_test;User ID=DB_A35B11_test_admin;password=Test123456;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andres\\Documents\\Visual\ Studio\ 2013\\Projects\\Core\.Service\\Core\.Service\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='APP_ECCI_ENTITIES']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andres\\Documents\\Proyecto\\ECCI_APP\\Core\.Service\\Core\.Service\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='APP_ECCI_ENTITIES']/@connectionString" />
   </parameter>
 </parameters>

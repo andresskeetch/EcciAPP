@@ -4,3 +4,4 @@
 **\obj\debug
 **\obj\release
 *.lock
+*.pdb
