@@ -22,9 +22,14 @@ namespace Core.Service.Mappings
                     LastName2 = user.Person.LastName2,
                     Name = user.Person.Name,
                     PersonID = user.Person.PersonID,
+                    Roles = user.Role?.Select ( f=> new RoleViewModel() { 
+                        Name = f.Name,
+                        RolID = f.RolID
+                    })
                 },
                 UserID = user.UserID,
                 UserName = user.UserName
+                
             };
             return account;
         }

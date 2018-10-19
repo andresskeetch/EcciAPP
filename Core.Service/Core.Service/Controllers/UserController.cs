@@ -18,7 +18,6 @@ namespace Core.Service.Controllers
         {
             try
             {
-
                 return Ok(UserLogic.GetTodayActivities(personID));
             }
             catch (Exception ex)
