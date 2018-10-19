@@ -1,0 +1,10 @@
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\bin\Debug\Core.Service.Communication.dll
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\bin\Debug\Core.Service.Communication.pdb
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\bin\Debug\Core.Models.dll
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\bin\Debug\Core.Models.pdb
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\obj\Debug\Core.Service.Communication.csprojResolveAssemblyReference.cache
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\obj\Debug\Core.Service.Communication.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\obj\Debug\Core.Service.Communication.dll
+C:\Users\Andres\Documents\Proyecto\ECCI_APP\App4\Core.Service.Communication\obj\Debug\Core.Service.Communication.pdb

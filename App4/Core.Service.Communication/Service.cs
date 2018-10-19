@@ -8,20 +8,33 @@ using System.Threading.Tasks;
 
 namespace Core.Service.Communication
 {
-    public class Service
+    public static class Service
     {
         private static readonly HttpClient client = new HttpClient();
 
-        public async Task<object> PostService<T>(object content) {
-            var json = JsonConvert.SerializeObject(content); 
+        public static async Task<T> PostService<T>(object content, string url) {
+            var json = JsonConvert.SerializeObject(content);
 
-            var response = await client.PostAsync(Constants.uri,null);
+            var response = await client.PostAsync(string.Format("{0}{1}", Constants.uri, url),
+                new StringContent(JsonConvert.SerializeObject(content, Formatting.None,
+                new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore
+                })
+                , Encoding.UTF8
+                , "application/json"));
 
-            var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<T>(responseString);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContentString = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<T>(responseContentString);
+                return result;
+            }
+            throw new Exception("Error");
         }
 
-        public async Task<object> GetService<T>(string url, string parameter)
+        public static async Task<T> GetService<T>(string url, string parameter)
         {
             var response = await client.GetAsync(string.Format("{0}/{1}/{2}", Constants.uri, url, parameter));
             var responseString = await response.Content.ReadAsStringAsync();
