@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Core.NotifyApp.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding Login}">
+            <StackLayout Padding="5">
+                <Image
+                    Source="logoEcci"
+                     VerticalOptions="CenterAndExpand"
+                >
+                </Image>
+                <Label 
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="E-Mail">
+                </Label>
+                <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{Binding UserName, Mode=TwoWay}"
+                        Placeholder="Ingrese su email"
+                        Keyboard="Email">
+                </Entry>
+                <Label 
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Contraseña">
+                </Label>
+                <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding Password, Mode=TwoWay}"
+                        Placeholder="Ingrese su contraseña"
+                        IsPassword="True">
+                </Entry>
+                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                    <Label 
+                        HorizontalOptions="StartAndExpand"
+                        Text="Recordarme">
+                    </Label>
+                    <Switch HorizontalOptions="End" IsToggled="{Binding IsRemembered,Mode=TwoWay}"></Switch>
+                </StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}" >
+                </ActivityIndicator>
+                <Button
+                    BackgroundColor="Blue"
+                    Text="Iniciar Sesion"
+                    TextColor="White"
+                    IsEnabled="{Binding IsEnable, Mode=TwoWay}"
+                    Command="{Binding loginCommand}"
+                    >
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

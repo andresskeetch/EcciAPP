@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Core.NotifyApp.Views.ScheduleTodayPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Inicio">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding ScheduleToday}"
+            Padding="5"
+            >
+            <Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                TextColor="Black"
+                Text="Actividades Del Dia">
+            </Label>
+            <ListView
+                ItemsSource="{Binding ScheduleToday}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout
+                                    Orientation="Vertical"
+                                    Grid.Column="0"
+                                    VerticalOptions="Center">
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            Text="{Binding Class.Name}"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            Text="-"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            Text="{Binding Class.Course.Name}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="Sede"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="{Binding Class.ClassRoom.Seat.Name}"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="-"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="{Binding Class.ClassRoom.Name}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Vertical">
+                                        <Label
+                                            Text="{Binding DateString}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Image
+                                    Grid.Column="1"
+                                    HorizontalOptions="End"
+                                    Source="ic_chevron_right">
+                                </Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
