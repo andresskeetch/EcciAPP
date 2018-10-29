@@ -61,6 +61,7 @@
     <EntitySetMapping Name="ScheduleAll">
       <EntityTypeMapping TypeName="APP_ECCI_MODEL.ScheduleAll">
         <MappingFragment StoreEntitySet="ScheduleAll">
+          <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="ClassID" ColumnName="ClassID" />
           <ScalarProperty Name="ScheduleAllID" ColumnName="ScheduleAllID" />

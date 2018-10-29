@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="APP_ECCI_MODEL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="APP_ECCI_MODEL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="ClassID" />
@@ -71,6 +71,7 @@
           <Property Name="ScheduleAllID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ClassID" Type="int" />
           <Property Name="Date" Type="datetime" />
+          <Property Name="State" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Seat">
           <Key>
@@ -421,6 +422,7 @@
           <Property Name="ClassID" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Class" Relationship="APP_ECCI_MODEL.FK__ScheduleA__Class__2A4B4B5E" FromRole="ScheduleAll" ToRole="Class" />
+          <Property Name="State" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Seat">
           <Key>
@@ -609,6 +611,7 @@
           <EntitySetMapping Name="ScheduleAll">
             <EntityTypeMapping TypeName="APP_ECCI_MODEL.ScheduleAll">
               <MappingFragment StoreEntitySet="ScheduleAll">
+                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ClassID" ColumnName="ClassID" />
                 <ScalarProperty Name="ScheduleAllID" ColumnName="ScheduleAllID" />

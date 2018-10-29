@@ -1,4 +1,5 @@
-﻿using Core.Models.Models;
+﻿using Core.Models.Enums;
+using Core.Models.Models;
 using Core.Service.Repository;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,7 @@ namespace Core.Service.Mappings
             };
             result.Date = entity.Date.Value;
             result.ScheduleAllID = entity.ScheduleAllID;
+            result.State = (StateClass)entity.State;
             return result;
         }
     }

@@ -12,18 +12,5 @@ namespace Core.Service.Controllers
     [RoutePrefix("api/user")]
     public class UserController : ApiController
     {
-        [HttpGet]
-        [Route("{personID}/gettodayactivities")]
-        public IHttpActionResult GetTodayActivities(int personID)
-        {
-            try
-            {
-                return Ok(UserLogic.GetTodayActivities(personID));
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError();
-            }
-        }
     }
 }

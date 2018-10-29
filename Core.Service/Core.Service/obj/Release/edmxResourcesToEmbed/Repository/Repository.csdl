@@ -121,6 +121,7 @@
     <Property Name="ClassID" Type="Int32" />
     <Property Name="Date" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Class" Relationship="APP_ECCI_MODEL.FK__ScheduleA__Class__2A4B4B5E" FromRole="ScheduleAll" ToRole="Class" />
+    <Property Name="State" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Seat">
     <Key>
