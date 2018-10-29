@@ -43,15 +43,15 @@ namespace Core.NotifyApp.Models
         #endregion
 
         #region Methods
-        private void Navigate()
+        private async void Navigate()
         {
             switch (PageName)
             {
                 case "LoginPage":
-                    MainViewModel.getInstance().Login = new LoginViewModel();
-                    navigationService.SetMainPage("LoginPage");
+                    navigationService.SetMainPage(PageName);
                     break;
                 default:
+                    await navigationService.NavigateOnMaster(PageName);
                     break;
             }
         }

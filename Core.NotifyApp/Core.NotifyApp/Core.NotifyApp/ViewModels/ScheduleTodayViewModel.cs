@@ -35,8 +35,6 @@ namespace Core.NotifyApp.ViewModels
         {
             this.loadScheduleToday();
         }
-
-
         #endregion
 
         #region Methods

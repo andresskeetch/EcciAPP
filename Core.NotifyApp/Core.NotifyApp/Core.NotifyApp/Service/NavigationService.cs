@@ -15,6 +15,7 @@ namespace Core.NotifyApp.Service
             switch (pageName)
             {
                 case "LoginPage":
+                    MainViewModel.getInstance().Login = new LoginViewModel();
                     Application.Current.MainPage = new LoginPage();
                     break;
                 case "MasterPage":
@@ -27,11 +28,20 @@ namespace Core.NotifyApp.Service
 
         }
 
-        public async Task NavigateOnMaster(string pageName) {
+        public async Task NavigateOnMaster(string pageName)
+        {
 
             App.Master.IsPresented = false;
             switch (pageName)
             {
+                case "SchedulePage":
+                    MainViewModel.getInstance().Schedule = new ScheduleViewModel();
+                    await App.Navigator.PushAsync(new SchedulePage());
+                    break;
+                case "MapPage":
+                    MainViewModel.getInstance().Map = new MapViewModel();
+                    await App.Navigator.PushAsync(new MapPage());
+                    break;
                 default:
                     break;
             }

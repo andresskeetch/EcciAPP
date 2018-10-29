@@ -1,4 +1,4 @@
-﻿using Android.Content;
+﻿
 using Core.NotifyApp.Views;
 
 using Xamarin.Forms;
@@ -9,8 +9,7 @@ namespace Core.NotifyApp
 	{
         public static NavigationPage Navigator { get; internal set; }
         public static MasterPage Master { get; internal set; }
-
-        ISharedPreferences session;
+        
 
         public App ()
 		{

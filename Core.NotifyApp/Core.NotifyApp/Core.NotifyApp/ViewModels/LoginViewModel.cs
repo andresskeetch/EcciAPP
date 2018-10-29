@@ -9,8 +9,6 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Core.NotifyApp.Service;
-using Android.Content;
-using Android.Views;
 
 namespace Core.NotifyApp.ViewModels
 {
@@ -23,6 +21,7 @@ namespace Core.NotifyApp.ViewModels
         private string _userName;
         private bool _isRunning;
         private bool _isEnable;
+        private bool _isRemembered;
 
         #endregion
 
@@ -47,7 +46,17 @@ namespace Core.NotifyApp.ViewModels
                 SetValue(ref _password, value);
             }
         }
-        public bool IsRemembered { get; set; }
+        public bool IsRemembered
+        {
+            get
+            {
+                return this._isRemembered;
+            }
+            set
+            {
+                SetValue(ref _isRemembered, value);
+            }
+        }
         public bool IsRunning
         {
             get
@@ -97,8 +106,6 @@ namespace Core.NotifyApp.ViewModels
 
 
         #endregion
-
-
 
         #region Methods
         async void login()

@@ -14,13 +14,14 @@ namespace Core.NotifyApp.ViewModels
         #region Properties 
         public ObservableCollection<Menu> MyMenu { get; set; }
         #endregion
+
         #region ViewModels
         public LoginViewModel Login { get; set; }
         public ScheduleTodayViewModel ScheduleToday { get; set; }
+        public ScheduleViewModel Schedule { get; set; }
+        public MapViewModel Map { get; set; }
 
         #endregion
-
-        
 
         #region Contructors
         public MainViewModel()
@@ -76,7 +77,7 @@ namespace Core.NotifyApp.ViewModels
 
             MyMenu.Add(new Menu()
             {
-                Icon = "ic_schedule",
+                Icon = "ic_exit_to_app",
                 PageName = "LoginPage",
                 Title = "Cerrar Sesion"
             });
