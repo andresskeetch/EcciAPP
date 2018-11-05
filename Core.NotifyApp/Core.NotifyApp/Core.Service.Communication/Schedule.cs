@@ -30,5 +30,27 @@ namespace Core.Service.Communication
                 throw new Exception(ex.Message);
             }
         }
+
+        public static IEnumerable<ScheduleAll> GetSchedule(int personId)
+        {
+            try
+            {
+                Task<IEnumerable<ScheduleAll>> result = Task.Run(() =>
+                {
+                    return Service.GetService<IEnumerable<ScheduleAll>>(string.Format(Constants.uriSchedule, personId));
+                });
+                result.Wait();
+
+                if (result.Result is IEnumerable<ScheduleAll>)
+                {
+                    return result.Result;
+                }
+                throw new Exception("Error conect service.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

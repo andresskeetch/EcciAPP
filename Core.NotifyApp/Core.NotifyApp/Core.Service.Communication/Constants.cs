@@ -15,6 +15,8 @@ namespace Core.Service.Communication
 
         public static string uriScheduleToday = "schedule/{0}/GetTodayActivities";
 
+        public static string uriSchedule = "schedule/{0}/GetActivities";
+
         public static Login User;
     }
 }

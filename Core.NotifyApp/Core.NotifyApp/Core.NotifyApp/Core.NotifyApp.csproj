@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="16.3.0.29" />
+    <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="16.3.0.21" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
