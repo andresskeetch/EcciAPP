@@ -131,17 +131,16 @@ namespace Core.NotifyApp.ViewModels
                 throw;
             }
             App.HubProxy.On<Notification>("Notificate", async (noty) => {
-                DispatcherHelper.CheckBeginInvokeOnUI(() => {
-                    //do something
-                    CrossLocalNotifications.Current.Show("Nueva Notificacion", noty.Description);
+
+                await Task.Run(() =>
+                {
+                    DispatcherHelper.CheckBeginInvokeOnUI(() => {
+                        //do something
+                        CrossLocalNotifications.Current.Show("Nueva Notificacion", noty.Description);
+                    });
                 });
+                
             });
-
-
-
-
-
-
         }
         void HubConnection_StateChanged(StateChange obj)
         {
