@@ -1,6 +1,6 @@
 ﻿
 using Core.NotifyApp.Views;
-
+using Microsoft.AspNet.SignalR.Client;
 using Xamarin.Forms;
 
 namespace Core.NotifyApp
@@ -9,7 +9,11 @@ namespace Core.NotifyApp
 	{
         public static NavigationPage Navigator { get; internal set; }
         public static MasterPage Master { get; internal set; }
-        
+
+        public static HubConnection HubConnection { get; internal set; }
+
+        public static IHubProxy HubProxy { get; internal set; }
+
 
         public App ()
 		{

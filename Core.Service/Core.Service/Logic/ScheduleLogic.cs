@@ -83,8 +83,7 @@ namespace Core.Service.Logic
             db.SaveChanges();
             
             noty.User = db.User.Where(f => f.UserID == noty.UserID).FirstOrDefault();
-            Notification sender = new Notification();
-            sender.Send(NotificationMapping.MapToViewModel(noty));
+            Notification.SetStaticNotification(NotificationMapping.MapToViewModel(noty));
 
             return activity;
         }

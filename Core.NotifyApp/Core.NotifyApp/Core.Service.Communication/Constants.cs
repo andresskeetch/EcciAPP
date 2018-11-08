@@ -12,6 +12,8 @@ namespace Core.Service.Communication
         //public static string uri = "http://solmedco-001-site4.etempurl.com/api";
         public static string uri = "http://localhost:52220/api";
 
+        public static string uriSignalR = "http://localhost:52220/";
+
         public static string uriLogin = "Account/Login";
 
         public static string uriScheduleToday = "schedule/{0}/GetTodayActivities";

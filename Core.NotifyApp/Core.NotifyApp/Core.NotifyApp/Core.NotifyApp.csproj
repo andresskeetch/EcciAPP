@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.3.0" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="16.3.0.29" />
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="16.3.0.21" />
