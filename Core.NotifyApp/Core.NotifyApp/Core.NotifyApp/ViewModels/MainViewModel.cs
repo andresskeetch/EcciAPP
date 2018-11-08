@@ -8,6 +8,7 @@ using Microsoft.AspNet.SignalR.Client;
 using GalaSoft.MvvmLight.Threading;
 using Core.Service.Communication;
 using Core.Models.Models;
+using Plugin.LocalNotifications;
 
 namespace Core.NotifyApp.ViewModels
 {
@@ -60,48 +61,7 @@ namespace Core.NotifyApp.ViewModels
         }
 
 
-        private async Task ConnectToSignalR()
-        {
-
-            App.HubConnection = new HubConnection(Constants.uriSignalR);
-            
-            //Creating the hub proxy. That allows us to send and receive
-            App.HubProxy = App.HubConnection.CreateHubProxy("NotificationHub");
-
-            try
-            {
-
-                if (App.HubConnection.State == Microsoft.AspNet.SignalR.Client.ConnectionState.Disconnected)
-                {
-                    App.HubConnection.StateChanged += HubConnection_StateChanged;
-                    await App.HubConnection.Start();
-                }
-            }
-
-            catch (Microsoft.AspNet.SignalR.Client.Infrastructure.StartException ex)
-            {
-
-                throw;
-            }
-
-            App.HubProxy.On<Notification>("Notificate", async (noty) => {
-
-                DispatcherHelper.CheckBeginInvokeOnUI(() => {
-                    //do something
-                });
-            });
-
-
-
-
-
-
-        }
-        void HubConnection_StateChanged(StateChange obj)
-        {
-
-            //You can check here the state of the signalr connection.
-        }
+        
         #endregion
 
         #region Singleton
@@ -147,6 +107,48 @@ namespace Core.NotifyApp.ViewModels
                 Title = "Cerrar Sesion"
             });
         }
+        async Task ConnectToSignalR()
+        {
+
+            App.HubConnection = new HubConnection(Constants.uriSignalR);
+
+            //Creating the hub proxy. That allows us to send and receive
+            App.HubProxy = App.HubConnection.CreateHubProxy("NotificationHub");
+
+            try
+            {
+
+                if (App.HubConnection.State == Microsoft.AspNet.SignalR.Client.ConnectionState.Disconnected)
+                {
+                    App.HubConnection.StateChanged += HubConnection_StateChanged;
+                    await App.HubConnection.Start();
+                }
+            }
+
+            catch (Microsoft.AspNet.SignalR.Client.Infrastructure.StartException ex)
+            {
+
+                throw;
+            }
+            App.HubProxy.On<Notification>("Notificate", async (noty) => {
+                DispatcherHelper.CheckBeginInvokeOnUI(() => {
+                    //do something
+                    CrossLocalNotifications.Current.Show("Nueva Notificacion", noty.Description);
+                });
+            });
+
+
+
+
+
+
+        }
+        void HubConnection_StateChanged(StateChange obj)
+        {
+
+            //You can check here the state of the signalr connection.
+        }
+        void test () { }
         #endregion
     }
 }
