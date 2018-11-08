@@ -13,5 +13,6 @@ namespace Core.Models.Models
         public ClassViewModel Class { get; set; }
         public StateClass State { get; set; }
         public DateTime Date { get; set; }
+        public string Description { get; set; }
     }
 }

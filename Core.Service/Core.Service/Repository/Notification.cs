@@ -12,13 +12,15 @@ namespace Core.Service.Repository
     using System;
     using System.Collections.Generic;
     
-    public partial class Schedule
+    public partial class Notification
     {
-        public int ScheduleID { get; set; }
-        public Nullable<int> ClassID { get; set; }
-        public string DayOfWeek { get; set; }
-        public Nullable<int> Hour { get; set; }
+        public int ID { get; set; }
+        public Nullable<int> ScheduleAllID { get; set; }
+        public string Description { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<int> UserID { get; set; }
     
-        public virtual Class Class { get; set; }
+        public virtual ScheduleAll ScheduleAll { get; set; }
+        public virtual User User { get; set; }
     }
 }

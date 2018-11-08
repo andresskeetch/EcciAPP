@@ -113,5 +113,16 @@
         <ScalarProperty Name="RolID" ColumnName="RolID" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Notification">
+      <EntityTypeMapping TypeName="APP_ECCI_MODEL.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ScheduleAllID" ColumnName="ScheduleAllID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

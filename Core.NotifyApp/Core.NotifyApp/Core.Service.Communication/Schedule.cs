@@ -52,5 +52,26 @@ namespace Core.Service.Communication
                 throw new Exception(ex.Message);
             }
         }
+
+        public static ScheduleAll Update(ScheduleAll activity, int personId) {
+            try
+            {
+                Task<ScheduleAll> result = Task.Run(() =>
+                {
+                    return Service.PostService<ScheduleAll>(activity, string.Format(Constants.uriSchedule, personId));
+                });
+                result.Wait();
+
+                if (result.Result is ScheduleAll)
+                {
+                    return result.Result;
+                }
+                throw new Exception("Error conect service.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -13,8 +13,10 @@
                     <syncfusion:ViewHeaderStyle>
                     </syncfusion:ViewHeaderStyle>
                 </syncfusion:SfSchedule.ViewHeaderStyle>
-                <syncfusion:SfSchedule.AppointmentMapping>
+                <syncfusion:SfSchedule.AppointmentMapping
+                    >
                     <syncfusion:ScheduleAppointmentMapping
+                        
 			            SubjectMapping="EventName" 
 			            StartTimeMapping="Date"
 			            EndTimeMapping="DateTo"

@@ -162,6 +162,7 @@
     <Compile Include="Logic\ScheduleLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Mappings\AccountMapping.cs" />
+    <Compile Include="Mappings\NotificationMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,6 +173,9 @@
       <DependentUpon>Repository.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\Course.cs">
+      <DependentUpon>Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Notification.cs">
       <DependentUpon>Repository.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\Person.cs">

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Core.NotifyApp.Views.ScheduleDetailPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Detalle Clase">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding ScheduleDetail}">
+            <StackLayout Padding="5">
+                <StackLayout Orientation="Horizontal">
+                    <Label FontAttributes="Bold"
+                        Text="Fecha Inicio : ">
+                    </Label>
+                    <Label 
+                        Text="{Binding Schedule.Date}">
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label FontAttributes="Bold"
+                        Text="Fecha Fin : ">
+                    </Label>
+                    <Label 
+                        Text="{Binding Schedule.DateTo}">
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label FontAttributes="Bold"
+                        Text="Sede : ">
+                    </Label>
+                    <Label 
+                        Text="{Binding Schedule.Class.ClassRoom.Seat.Name}">
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label FontAttributes="Bold"
+                        Text="Profesor : ">
+                    </Label>
+                    <Label 
+                        Text="{Binding Schedule.Class.ClassRoom.Name}">
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label  FontAttributes="Bold"
+                        Text="Salon : ">
+                    </Label>
+                    <Label 
+                        Text="{Binding Schedule.Class.Teacher.LongName}">
+                    </Label>
+                </StackLayout>
+
+                <Label Text="Descripcion" FontAttributes="Bold" >
+                </Label>
+                <Entry
+                    Text="{Binding Description, Mode=TwoWay}" Placeholder="Descripcion">
+                </Entry>
+
+                <Button
+                    BackgroundColor="Blue"
+                    Text="Modificar"
+                    TextColor="White"
+                    Command="{Binding updateCommand}"
+                    >
+                </Button>
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

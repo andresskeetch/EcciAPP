@@ -19,6 +19,7 @@ namespace Core.Service
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
         }
     }
 }

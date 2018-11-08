@@ -30,6 +30,16 @@
           <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduleAllID" Type="int" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
         <EntityType Name="Person">
           <Key>
             <PropertyRef Name="PersonID" />
@@ -155,6 +165,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Notificat__Sched__45F365D3">
+          <End Role="ScheduleAll" Type="Self.ScheduleAll" Multiplicity="0..1" />
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleAll">
+              <PropertyRef Name="ScheduleAllID" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="ScheduleAllID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__UserI__46E78A0C">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__PersonCla__Class__276EDEB3">
           <End Role="Class" Type="Self.Class" Multiplicity="1" />
           <End Role="PersonClass" Type="Self.PersonClass" Multiplicity="*" />
@@ -243,6 +277,7 @@
           <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClassRoom" EntityType="Self.ClassRoom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonClass" EntityType="Self.PersonClass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
@@ -267,6 +302,14 @@
           <AssociationSet Name="FK__ClassRoom__SeatI__267ABA7A" Association="Self.FK__ClassRoom__SeatI__267ABA7A">
             <End Role="Seat" EntitySet="Seat" />
             <End Role="ClassRoom" EntitySet="ClassRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__Sched__45F365D3" Association="Self.FK__Notificat__Sched__45F365D3">
+            <End Role="ScheduleAll" EntitySet="ScheduleAll" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__UserI__46E78A0C" Association="Self.FK__Notificat__UserI__46E78A0C">
+            <End Role="User" EntitySet="User" />
+            <End Role="Notification" EntitySet="Notification" />
           </AssociationSet>
           <AssociationSet Name="FK__PersonCla__Class__276EDEB3" Association="Self.FK__PersonCla__Class__276EDEB3">
             <End Role="Class" EntitySet="Class" />
@@ -348,6 +391,15 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <EntitySet Name="Notification" EntityType="APP_ECCI_MODEL.Notification" />
+          <AssociationSet Name="FK__Notificat__Sched__45F365D3" Association="APP_ECCI_MODEL.FK__Notificat__Sched__45F365D3">
+            <End Role="ScheduleAll" EntitySet="ScheduleAll" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__UserI__46E78A0C" Association="APP_ECCI_MODEL.FK__Notificat__UserI__46E78A0C">
+            <End Role="User" EntitySet="User" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Class">
           <Key>
@@ -423,6 +475,7 @@
           <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Class" Relationship="APP_ECCI_MODEL.FK__ScheduleA__Class__2A4B4B5E" FromRole="ScheduleAll" ToRole="Class" />
           <Property Name="State" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Notification" Relationship="APP_ECCI_MODEL.FK__Notificat__Sched__45F365D3" FromRole="ScheduleAll" ToRole="Notification" />
         </EntityType>
         <EntityType Name="Seat">
           <Key>
@@ -452,6 +505,7 @@
           <Property Name="PersonID" Type="Int32" />
           <NavigationProperty Name="Person" Relationship="APP_ECCI_MODEL.FK__User__PersonID__2B3F6F97" FromRole="User" ToRole="Person" />
           <NavigationProperty Name="Role" Relationship="APP_ECCI_MODEL.UserRole" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Notification" Relationship="APP_ECCI_MODEL.FK__Notificat__UserI__46E78A0C" FromRole="User" ToRole="Notification" />
         </EntityType>
         <Association Name="FK__Class__ClassRoom__239E4DCF">
           <End Type="APP_ECCI_MODEL.ClassRoom" Role="ClassRoom" Multiplicity="0..1" />
@@ -544,6 +598,42 @@
         <Association Name="UserRole">
           <End Type="APP_ECCI_MODEL.Role" Role="Role" Multiplicity="*" />
           <End Type="APP_ECCI_MODEL.User" Role="User" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleAllID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="ScheduleAll" Relationship="APP_ECCI_MODEL.FK__Notificat__Sched__45F365D3" FromRole="Notification" ToRole="ScheduleAll" />
+          <NavigationProperty Name="User" Relationship="APP_ECCI_MODEL.FK__Notificat__UserI__46E78A0C" FromRole="Notification" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__Notificat__Sched__45F365D3">
+          <End Type="APP_ECCI_MODEL.ScheduleAll" Role="ScheduleAll" Multiplicity="0..1" />
+          <End Type="APP_ECCI_MODEL.Notification" Role="Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleAll">
+              <PropertyRef Name="ScheduleAllID" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="ScheduleAllID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__UserI__46E78A0C">
+          <End Type="APP_ECCI_MODEL.User" Role="User" Multiplicity="0..1" />
+          <End Type="APP_ECCI_MODEL.Notification" Role="Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -663,6 +753,17 @@
               <ScalarProperty Name="RolID" ColumnName="RolID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Notification">
+            <EntityTypeMapping TypeName="APP_ECCI_MODEL.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ScheduleAllID" ColumnName="ScheduleAllID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

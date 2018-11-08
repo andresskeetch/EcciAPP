@@ -25,6 +25,16 @@
     <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScheduleAllID" Type="int" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
   <EntityType Name="Person">
     <Key>
       <PropertyRef Name="PersonID" />
@@ -150,6 +160,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Notificat__Sched__45F365D3">
+    <End Role="ScheduleAll" Type="Self.ScheduleAll" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScheduleAll">
+        <PropertyRef Name="ScheduleAllID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="ScheduleAllID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__UserI__46E78A0C">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__PersonCla__Class__276EDEB3">
     <End Role="Class" Type="Self.Class" Multiplicity="1" />
     <End Role="PersonClass" Type="Self.PersonClass" Multiplicity="*" />
@@ -238,6 +272,7 @@
     <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClassRoom" EntityType="Self.ClassRoom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PersonClass" EntityType="Self.PersonClass" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
@@ -262,6 +297,14 @@
     <AssociationSet Name="FK__ClassRoom__SeatI__267ABA7A" Association="Self.FK__ClassRoom__SeatI__267ABA7A">
       <End Role="Seat" EntitySet="Seat" />
       <End Role="ClassRoom" EntitySet="ClassRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__Sched__45F365D3" Association="Self.FK__Notificat__Sched__45F365D3">
+      <End Role="ScheduleAll" EntitySet="ScheduleAll" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__UserI__46E78A0C" Association="Self.FK__Notificat__UserI__46E78A0C">
+      <End Role="User" EntitySet="User" />
+      <End Role="Notification" EntitySet="Notification" />
     </AssociationSet>
     <AssociationSet Name="FK__PersonCla__Class__276EDEB3" Association="Self.FK__PersonCla__Class__276EDEB3">
       <End Role="Class" EntitySet="Class" />

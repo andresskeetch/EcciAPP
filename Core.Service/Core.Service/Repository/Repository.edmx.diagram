@@ -24,6 +24,9 @@
         <AssociationConnector Association="APP_ECCI_MODEL.FK__User__PersonID__2B3F6F97" />
         <AssociationConnector Association="APP_ECCI_MODEL.PersonClass" />
         <AssociationConnector Association="APP_ECCI_MODEL.UserRole" />
+        <EntityTypeShape EntityType="APP_ECCI_MODEL.Notification" Width="1.5" PointX="12" PointY="2.875" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__Notificat__Sched__45F365D3" />
+        <AssociationConnector Association="APP_ECCI_MODEL.FK__Notificat__UserI__46E78A0C" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

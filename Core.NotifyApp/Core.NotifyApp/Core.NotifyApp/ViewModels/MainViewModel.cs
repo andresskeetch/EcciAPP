@@ -19,6 +19,7 @@ namespace Core.NotifyApp.ViewModels
         public LoginViewModel Login { get; set; }
         public ScheduleTodayViewModel ScheduleToday { get; set; }
         public ScheduleViewModel Schedule { get; set; }
+        public ScheduleDetailViewModel ScheduleDetail { get; set; }
         public MapViewModel Map { get; set; }
 
         #endregion

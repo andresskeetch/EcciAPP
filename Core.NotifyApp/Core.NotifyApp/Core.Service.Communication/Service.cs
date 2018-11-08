@@ -13,25 +13,33 @@ namespace Core.Service.Communication
         private static readonly HttpClient client = new HttpClient();
 
         public static async Task<T> PostService<T>(object content, string url) {
-            var json = JsonConvert.SerializeObject(content);
-
-            var response = await client.PostAsync(string.Format("{0}/{1}", Constants.uri, url),
-                new StringContent(JsonConvert.SerializeObject(content, Formatting.None,
-                new JsonSerializerSettings
-                {
-                    NullValueHandling = NullValueHandling.Ignore
-                })
-                , Encoding.UTF8
-                , "application/json"));
-
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseContentString = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<T>(responseContentString);
-                return result;
+                var json = JsonConvert.SerializeObject(content);
+
+                var response = await client.PostAsync(string.Format("{0}/{1}", Constants.uri, url),
+                    new StringContent(JsonConvert.SerializeObject(content, Formatting.None,
+                    new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore
+                    })
+                    , Encoding.UTF8
+                    , "application/json"));
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContentString = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<T>(responseContentString);
+                    return result;
+                }
+                throw new Exception("Error");
             }
-            throw new Exception("Error");
+            catch (Exception e)
+            {
+
+                throw;
+            }
         }
 
         public static async Task<T> GetService<T>(string url)

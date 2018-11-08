@@ -28,7 +28,7 @@ namespace Core.NotifyApp.Service
 
         }
 
-        public async Task NavigateOnMaster(string pageName)
+        public async Task NavigateOnMaster(string pageName, object param = null)
         {
 
             App.Master.IsPresented = false;
@@ -37,6 +37,10 @@ namespace Core.NotifyApp.Service
                 case "SchedulePage":
                     MainViewModel.getInstance().Schedule = new ScheduleViewModel();
                     await App.Navigator.PushAsync(new SchedulePage());
+                    break;
+                case "ScheduleDetailPage":
+                    MainViewModel.getInstance().ScheduleDetail = new ScheduleDetailViewModel(param);
+                    await App.Navigator.PushAsync(new ScheduleDetailPage());
                     break;
                 case "MapPage":
                     MainViewModel.getInstance().Map = new MapViewModel();

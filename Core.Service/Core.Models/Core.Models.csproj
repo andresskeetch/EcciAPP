@@ -47,6 +47,7 @@
     <Compile Include="Models\ClassViewModel.cs" />
     <Compile Include="Models\CourseViewModel.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\NotificationViewModel.cs" />
     <Compile Include="Models\PersonViewModel.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\ScheduleAllViewModel.cs" />

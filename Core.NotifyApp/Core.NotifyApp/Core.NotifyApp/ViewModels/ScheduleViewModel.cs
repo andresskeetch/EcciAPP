@@ -1,7 +1,10 @@
 ﻿using Core.Models.Models;
+using GalaSoft.MvvmLight.Command;
+using Syncfusion.SfSchedule.XForms;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 using communitacion = Core.Service.Communication;
 
 namespace Core.NotifyApp.ViewModels
@@ -13,6 +16,7 @@ namespace Core.NotifyApp.ViewModels
         private ObservableCollection<ScheduleAll> schedule;
         private IEnumerable<ScheduleAll> listScheduleToday;
         #endregion
+        
         #region Constructors
         public ScheduleViewModel()
         {
@@ -35,6 +39,9 @@ namespace Core.NotifyApp.ViewModels
             this.listScheduleToday = communitacion.Schedule.GetScheduleToday(communitacion.Constants.User.User.Person.PersonID);
             this.Schedule = new ObservableCollection<ScheduleAll>(this.listScheduleToday.OrderBy(f => f.Date));
         }
+
+        #endregion
+        #region Events
 
         #endregion
     }
