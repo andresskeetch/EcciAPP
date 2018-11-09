@@ -6,7 +6,6 @@ using Core.NotifyApp.Service;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using GalaSoft.MvvmLight.Threading;
-using Core.Service.Communication;
 using Core.Models.Models;
 using Plugin.LocalNotifications;
 
@@ -40,6 +39,7 @@ namespace Core.NotifyApp.ViewModels
         public LoginViewModel Login { get; set; }
         public ScheduleTodayViewModel ScheduleToday { get; set; }
         public ScheduleViewModel Schedule { get; set; }
+        public NotificationViewModel Notification { get; set; }
         public ScheduleDetailViewModel ScheduleDetail { get; set; }
         public MapViewModel Map { get; set; }
 
@@ -102,15 +102,22 @@ namespace Core.NotifyApp.ViewModels
 
             MyMenu.Add(new Menu()
             {
+                Icon = "ic_notification_important",
+                PageName = "NotificationPage",
+                Title = "Notificación"
+            });
+
+            MyMenu.Add(new Menu()
+            {
                 Icon = "ic_exit_to_app",
                 PageName = "LoginPage",
-                Title = "Cerrar Sesion"
+                Title = "Cerrar Sesión"
             });
         }
         async Task ConnectToSignalR()
         {
 
-            App.HubConnection = new HubConnection(Constants.uriSignalR);
+            App.HubConnection = new HubConnection(Core.Service.Communication.Constants.uriSignalR);
 
             //Creating the hub proxy. That allows us to send and receive
             App.HubProxy = App.HubConnection.CreateHubProxy("NotificationHub");
@@ -134,14 +141,15 @@ namespace Core.NotifyApp.ViewModels
 
                 await Task.Run(() =>
                 {
-                    CrossLocalNotifications.Current.Show("Nueva Notificacion", noty.Description);
+                    CrossLocalNotifications.Current.Show(
+                        string.Format("{0} - {1}", noty.ScheduleAll.Class.ClassRoom.Name, noty.ScheduleAll.Class.Teacher.LongName),
+                        noty.Description);
                 });
-                
             });
         }
         void HubConnection_StateChanged(StateChange obj)
         {
-
+            CrossLocalNotifications.Current.Show("Conexion", "Conexion al Servidor a Cambiado.");
             //You can check here the state of the signalr connection.
         }
         void test () { }

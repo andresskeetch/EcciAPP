@@ -22,6 +22,8 @@ namespace Core.Service.Communication
 
         public static string uriScheduleUpdate = "schedule/{0}/UpdateActivity";
 
-        
+        public static string uriGetNotification = "Notification/{0}/GetNotifications";
+
+
     }
 }

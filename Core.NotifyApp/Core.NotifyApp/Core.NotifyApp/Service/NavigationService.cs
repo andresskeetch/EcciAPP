@@ -38,6 +38,10 @@ namespace Core.NotifyApp.Service
                     MainViewModel.getInstance().Schedule = new ScheduleViewModel();
                     await App.Navigator.PushAsync(new SchedulePage());
                     break;
+                case "NotificationPage":
+                    MainViewModel.getInstance().Notification = new NotificationViewModel();
+                    await App.Navigator.PushAsync(new NotificationPage());
+                    break;
                 case "ScheduleDetailPage":
                     MainViewModel.getInstance().ScheduleDetail = new ScheduleDetailViewModel(param);
                     await App.Navigator.PushAsync(new ScheduleDetailPage());

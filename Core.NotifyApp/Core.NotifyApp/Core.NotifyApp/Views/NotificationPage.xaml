@@ -1,22 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Core.NotifyApp.Views.ScheduleTodayPage"
+             x:Class="Core.NotifyApp.Views.NotificationPage"
+             BackgroundColor="{StaticResource FontColor}"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Inicio">
+             Title="Notificaciones">
     <ContentPage.Content>
         <StackLayout
-            BindingContext="{Binding ScheduleToday}"
+            BindingContext="{Binding Notification}"
             Padding="5"
             >
             <Label
                 FontAttributes="Bold"
                 FontSize="Large"
                 TextColor="Black"
-                Text="Actividades Del Dia">
+                Text="Notificaciones">
             </Label>
             <ListView
-                ItemsSource="{Binding ScheduleToday}"
+                ItemsSource="{Binding Notifications}"
                 HasUnevenRows="True"
                 IsPullToRefreshEnabled="True"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"

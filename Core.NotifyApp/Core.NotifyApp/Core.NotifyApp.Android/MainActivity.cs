@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.LocalNotifications;
 
 namespace Core.NotifyApp.Droid
 {
@@ -17,11 +18,19 @@ namespace Core.NotifyApp.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            
+
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+
+            LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.logoEcci;
+
+            
         }
+
+
     }
 }
 
