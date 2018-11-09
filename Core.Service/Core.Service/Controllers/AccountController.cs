@@ -16,7 +16,8 @@ namespace Core.Service.Controllers
         {
             try
             {
-                return Ok(AccountLogic.Authenticate(user));
+                AccountLogic logic = new AccountLogic();
+                return Ok(logic.Authenticate(user));
             }
             catch (Exception ex)
             {

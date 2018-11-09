@@ -18,7 +18,8 @@ namespace Core.Service.Controllers
         {
             try
             {
-                return Ok(ScheduleLogic.GetTodayActivities(personID));
+                ScheduleLogic logic = new ScheduleLogic();
+                return Ok(logic.GetTodayActivities(personID));
             }
             catch (Exception ex)
             {
@@ -32,7 +33,8 @@ namespace Core.Service.Controllers
         {
             try
             {
-                return Ok(ScheduleLogic.GetActivities(personID));
+                ScheduleLogic logic = new ScheduleLogic();
+                return Ok(logic.GetActivities(personID));
             }
             catch (Exception ex)
             {
@@ -46,7 +48,8 @@ namespace Core.Service.Controllers
         {
             try
             {
-                return Ok(ScheduleLogic.Update(activity, personID));
+                ScheduleLogic logic = new ScheduleLogic();
+                return Ok(logic.Update(activity, personID));
             }
             catch (Exception ex)
             {

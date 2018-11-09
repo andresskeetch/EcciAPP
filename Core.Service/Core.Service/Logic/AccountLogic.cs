@@ -9,11 +9,10 @@ using Core.Service.Mappings;
 namespace Core.Service.Logic
 {
 
-    public static class AccountLogic
+    public class AccountLogic : BaseLogic
     {
-        private static APP_ECCI_ENTITIES db = new APP_ECCI_ENTITIES();
 
-        public static Login Authenticate(Login user)
+        public Login Authenticate(Login user)
         {
             User account = db.User.Where(f => f.UserName == user.UserName && f.Password == user.Password).FirstOrDefault();
             if (account != null)
@@ -34,7 +33,7 @@ namespace Core.Service.Logic
                 };
             }
         }
-        public static User GetAccount(Login user)
+        public User GetAccount(Login user)
         {
             User account = db.User.Where(f => f.UserName == user.UserName && f.Password == user.Password).FirstOrDefault();
 
@@ -46,7 +45,7 @@ namespace Core.Service.Logic
 
             return account;
         }
-        public static IEnumerable<Role> GetRoles(int UserID)
+        public IEnumerable<Role> GetRoles(int UserID)
         {
             return db.Role.Where(f => f.User.Where(t => t.UserID == UserID).Any());
         }

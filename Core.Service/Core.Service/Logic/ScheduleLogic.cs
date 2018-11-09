@@ -8,11 +8,10 @@ using System.Web;
 
 namespace Core.Service.Logic
 {
-    public class ScheduleLogic
+    public class ScheduleLogic : BaseLogic
     {
-        private static APP_ECCI_ENTITIES db = new APP_ECCI_ENTITIES();
 
-        public static IEnumerable<ScheduleAllViewModel> GetTodayActivities(int personID)
+        public IEnumerable<ScheduleAllViewModel> GetTodayActivities(int personID)
         {
             //Person person = db.Person.Where(f => f.Class.Where(t => t.ScheduleAll.Where(s => DateTime.Now <= s.Date.Value && s.Date.Value >= DateTime.Now).Any()).Any()).FirstOrDefault();
             Person person = db.Person.Where(f => f.PersonID == personID).FirstOrDefault();
@@ -36,7 +35,7 @@ namespace Core.Service.Logic
             return result;
         }
 
-        public static IEnumerable<ScheduleAllViewModel> GetActivities(int personID)
+        public IEnumerable<ScheduleAllViewModel> GetActivities(int personID)
         {
             List<ScheduleAllViewModel> result = new List<ScheduleAllViewModel>();
             UserMapping mapping = new UserMapping();
@@ -64,7 +63,7 @@ namespace Core.Service.Logic
         }
 
 
-        public static ScheduleAllViewModel Update(ScheduleAllViewModel activity, int UserID) {
+        public ScheduleAllViewModel Update(ScheduleAllViewModel activity, int UserID) {
 
             ScheduleAll schedule = db.ScheduleAll.Where(f => f.ScheduleAllID == activity.ScheduleAllID).FirstOrDefault();
 

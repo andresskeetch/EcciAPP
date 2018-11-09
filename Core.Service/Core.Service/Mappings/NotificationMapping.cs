@@ -8,6 +8,9 @@ namespace Core.Service.Mappings
 {
     public static class NotificationMapping
     {
+        public static IEnumerable<NotificationViewModel> MapToViewModel(IEnumerable<Repository.Notification> notys) {
+            return notys.Select(f => MapToViewModel(f));
+        }
         public static NotificationViewModel MapToViewModel(Repository.Notification noty)
         {
             UserMapping mapper = new UserMapping();

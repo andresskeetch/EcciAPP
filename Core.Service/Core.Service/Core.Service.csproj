@@ -153,12 +153,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logic\AccountLogic.cs" />
+    <Compile Include="Logic\BaseLogic.cs" />
+    <Compile Include="Logic\NotificationLogic.cs" />
     <Compile Include="Logic\ScheduleLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Mappings\AccountMapping.cs" />
