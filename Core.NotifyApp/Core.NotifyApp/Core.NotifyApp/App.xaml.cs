@@ -1,4 +1,6 @@
 ﻿
+using Core.Models.Models;
+using Core.NotifyApp.Service;
 using Core.NotifyApp.Views;
 using Microsoft.AspNet.SignalR.Client;
 using Xamarin.Forms;
@@ -14,12 +16,20 @@ namespace Core.NotifyApp
 
         public static IHubProxy HubProxy { get; internal set; }
 
-
+        public static Login User { get; internal set; }
+        NavigationService navigationService;
         public App ()
 		{
 			InitializeComponent();
-
-            MainPage = new LoginPage();
+            navigationService = new NavigationService();
+            if (User == null)
+            {
+                MainPage = new LoginPage();
+            }
+            else {
+                navigationService.SetMainPage("MasterPage");
+            }
+            
         }
 
 		protected override void OnStart ()

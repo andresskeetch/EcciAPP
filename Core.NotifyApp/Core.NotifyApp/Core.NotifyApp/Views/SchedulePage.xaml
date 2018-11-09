@@ -8,8 +8,8 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Schedule}">
-            <syncfusion:SfSchedule x:Name="schedule" DataSource="{Binding Schedule}">
-                <syncfusion:SfSchedule.ViewHeaderStyle>
+            <syncfusion:SfSchedule x:Name="schedule" >
+                <!--<syncfusion:SfSchedule.ViewHeaderStyle>
                     <syncfusion:ViewHeaderStyle>
                     </syncfusion:ViewHeaderStyle>
                 </syncfusion:SfSchedule.ViewHeaderStyle>
@@ -22,7 +22,7 @@
 			            EndTimeMapping="DateTo"
                         ColorMapping="Color">
                     </syncfusion:ScheduleAppointmentMapping>
-                </syncfusion:SfSchedule.AppointmentMapping>
+                </syncfusion:SfSchedule.AppointmentMapping>-->
             </syncfusion:SfSchedule>
         </StackLayout>
         

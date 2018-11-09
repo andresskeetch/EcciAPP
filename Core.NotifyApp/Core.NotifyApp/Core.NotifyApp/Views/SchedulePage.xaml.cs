@@ -14,7 +14,7 @@ namespace Core.NotifyApp.Views
         public SchedulePage ()
 		{
 			InitializeComponent ();
-            schedule.CellDoubleTapped += Schedule_CellDoubleTapped;
+            //schedule.CellDoubleTapped += Schedule_CellDoubleTapped;
             navigationService = new NavigationService();
         }
 

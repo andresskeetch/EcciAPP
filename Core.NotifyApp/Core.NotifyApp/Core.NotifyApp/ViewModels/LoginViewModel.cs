@@ -9,6 +9,8 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Core.NotifyApp.Service;
+using Plugin.LocalNotifications;
+using Android.OS;
 
 namespace Core.NotifyApp.ViewModels
 {
@@ -108,6 +110,7 @@ namespace Core.NotifyApp.ViewModels
         #endregion
 
         #region Methods
+
         async void login()
         {
             if (string.IsNullOrEmpty(this.UserName))
@@ -139,7 +142,7 @@ namespace Core.NotifyApp.ViewModels
                 this.UserName = string.Empty;
                 this.Password = string.Empty;
 
-                Constants.User = result;
+                App.User = result;
 
                 if (this.IsRemembered)
                 {

@@ -63,7 +63,7 @@ namespace Core.NotifyApp.ViewModels
                 this.offLoading();
                 return;
             }
-            var result = Core.Service.Communication.Schedule.Update(Schedule, Constants.User.User.UserID);
+            var result = Core.Service.Communication.Schedule.Update(Schedule, App.User.User.UserID);
         }
         void offLoading() {
 

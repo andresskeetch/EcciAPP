@@ -9,10 +9,10 @@ namespace Core.Service.Communication
 {
     public static class Constants
     {
-        //public static string uri = "http://solmedco-001-site4.etempurl.com/api";
-        public static string uri = "http://localhost:52220/api";
+        public static string uri = "http://solmedco-001-site4.etempurl.com/api";
+        //public static string uri = "http://localhost/servicio/api";
 
-        public static string uriSignalR = "http://localhost:52220/";
+        public static string uriSignalR = "http://solmedco-001-site4.etempurl.com/";
 
         public static string uriLogin = "Account/Login";
 
@@ -22,6 +22,6 @@ namespace Core.Service.Communication
 
         public static string uriScheduleUpdate = "schedule/{0}/UpdateActivity";
 
-        public static Login User;
+        
     }
 }

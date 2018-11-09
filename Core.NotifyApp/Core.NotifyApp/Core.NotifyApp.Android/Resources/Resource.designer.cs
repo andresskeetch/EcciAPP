@@ -26,6 +26,7 @@ namespace Core.NotifyApp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::Core.NotifyApp.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglecollapseicon = global::Core.NotifyApp.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglevisibleicon = global::Core.NotifyApp.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
 			global::Com.Syncfusion.Schedule.Resource.Attribute.allowAppointmentDrag = global::Core.NotifyApp.Droid.Resource.Attribute.allowAppointmentDrag;
@@ -2262,26 +2263,26 @@ namespace Core.NotifyApp.Droid
 			// aapt resource value: 0x7f020055
 			public const int avd_hide_password = 2130837589;
 			
-			// aapt resource value: 0x7f020118
-			public const int avd_hide_password_1 = 2130837784;
-			
 			// aapt resource value: 0x7f020119
-			public const int avd_hide_password_2 = 2130837785;
+			public const int avd_hide_password_1 = 2130837785;
 			
 			// aapt resource value: 0x7f02011a
-			public const int avd_hide_password_3 = 2130837786;
+			public const int avd_hide_password_2 = 2130837786;
+			
+			// aapt resource value: 0x7f02011b
+			public const int avd_hide_password_3 = 2130837787;
 			
 			// aapt resource value: 0x7f020056
 			public const int avd_show_password = 2130837590;
 			
-			// aapt resource value: 0x7f02011b
-			public const int avd_show_password_1 = 2130837787;
-			
 			// aapt resource value: 0x7f02011c
-			public const int avd_show_password_2 = 2130837788;
+			public const int avd_show_password_1 = 2130837788;
 			
 			// aapt resource value: 0x7f02011d
-			public const int avd_show_password_3 = 2130837789;
+			public const int avd_show_password_2 = 2130837789;
+			
+			// aapt resource value: 0x7f02011e
+			public const int avd_show_password_3 = 2130837790;
 			
 			// aapt resource value: 0x7f020057
 			public const int design_bottom_navigation_item_background = 2130837591;
@@ -2847,11 +2848,11 @@ namespace Core.NotifyApp.Droid
 			// aapt resource value: 0x7f020112
 			public const int notification_icon_background = 2130837778;
 			
-			// aapt resource value: 0x7f020116
-			public const int notification_template_icon_bg = 2130837782;
-			
 			// aapt resource value: 0x7f020117
-			public const int notification_template_icon_low_bg = 2130837783;
+			public const int notification_template_icon_bg = 2130837783;
+			
+			// aapt resource value: 0x7f020118
+			public const int notification_template_icon_low_bg = 2130837784;
 			
 			// aapt resource value: 0x7f020113
 			public const int notification_tile_bg = 2130837779;
@@ -2860,7 +2861,10 @@ namespace Core.NotifyApp.Droid
 			public const int notify_panel_notification_icon_bg = 2130837780;
 			
 			// aapt resource value: 0x7f020115
-			public const int Recurrence = 2130837781;
+			public const int plugin_lc_smallicon = 2130837781;
+			
+			// aapt resource value: 0x7f020116
+			public const int Recurrence = 2130837782;
 			
 			static Drawable()
 			{

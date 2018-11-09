@@ -58,7 +58,7 @@ namespace Core.Service.Communication
             {
                 Task<ScheduleAll> result = Task.Run(() =>
                 {
-                    return Service.PostService<ScheduleAll>(activity, string.Format(Constants.uriSchedule, personId));
+                    return Service.PostService<ScheduleAll>(activity, string.Format(Constants.uriScheduleUpdate, personId));
                 });
                 result.Wait();
 

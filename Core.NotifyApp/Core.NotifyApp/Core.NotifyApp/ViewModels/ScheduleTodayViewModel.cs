@@ -41,7 +41,7 @@ namespace Core.NotifyApp.ViewModels
         private void loadScheduleToday()
         {
             setRefreshingListview(true);
-            this.listScheduleToday = communitacion.Schedule.GetScheduleToday(communitacion.Constants.User.User.Person.PersonID);
+            this.listScheduleToday = communitacion.Schedule.GetScheduleToday(App.User.User.Person.PersonID);
             this.ScheduleToday = new ObservableCollection<ScheduleAll>(this.listScheduleToday.OrderBy(f=>f.Date));
             setRefreshingListview(false);
         }

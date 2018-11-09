@@ -36,7 +36,7 @@ namespace Core.NotifyApp.ViewModels
         #region Methods
 
         void loadSchedule () {
-            this.listScheduleToday = communitacion.Schedule.GetScheduleToday(communitacion.Constants.User.User.Person.PersonID);
+            this.listScheduleToday = communitacion.Schedule.GetScheduleToday(App.User.User.Person.PersonID);
             this.Schedule = new ObservableCollection<ScheduleAll>(this.listScheduleToday.OrderBy(f => f.Date));
         }
 

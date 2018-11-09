@@ -134,10 +134,7 @@ namespace Core.NotifyApp.ViewModels
 
                 await Task.Run(() =>
                 {
-                    DispatcherHelper.CheckBeginInvokeOnUI(() => {
-                        //do something
-                        CrossLocalNotifications.Current.Show("Nueva Notificacion", noty.Description);
-                    });
+                    CrossLocalNotifications.Current.Show("Nueva Notificacion", noty.Description);
                 });
                 
             });
