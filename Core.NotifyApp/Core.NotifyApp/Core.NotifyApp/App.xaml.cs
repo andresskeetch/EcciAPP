@@ -20,7 +20,8 @@ namespace Core.NotifyApp
         NavigationService navigationService;
         public App ()
 		{
-			InitializeComponent();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDE2NTdAMzEzNjJlMzMyZTMwaUNWa0tUbnIvTG1UTlA0NlY3WEwzczRUTUdBZ28zRm1rWDlvaWpiVmo3Zz0=");
+            InitializeComponent();
             navigationService = new NavigationService();
             if (User == null)
             {

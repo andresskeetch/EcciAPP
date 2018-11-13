@@ -1,4 +1,5 @@
 ﻿using Core.Models.Models;
+using Core.NotifyApp.Service;
 using Core.NotifyApp.Tools;
 using Core.Service.Communication;
 using GalaSoft.MvvmLight.Command;
@@ -15,7 +16,32 @@ namespace Core.NotifyApp.ViewModels
     {
         #region Properties
         private ScheduleAll schedule;
+        private bool _isRunning;
+        private bool _isEnable;
+        NavigationService navigationService;
         private string description;
+        public bool IsRunning
+        {
+            get
+            {
+                return this._isRunning;
+            }
+            set
+            {
+                SetValue(ref _isRunning, value);
+            }
+        }
+        public bool IsEnable
+        {
+            get
+            {
+                return this._isEnable;
+            }
+            set
+            {
+                SetValue(ref _isEnable, value);
+            }
+        }
         public ScheduleAll Schedule
         {
             get { return this.schedule; }
@@ -31,6 +57,7 @@ namespace Core.NotifyApp.ViewModels
         public ScheduleDetailViewModel(object schedule)
         {
             this.Schedule = (Core.Models.Models.ScheduleAll)schedule;
+            navigationService = new NavigationService();
             this.loadPage();
         }
         #endregion
@@ -63,14 +90,22 @@ namespace Core.NotifyApp.ViewModels
                 this.offLoading();
                 return;
             }
+            Schedule.Description = Description;
             var result = Core.Service.Communication.Schedule.Update(Schedule, App.User.User.UserID);
+            await Application.Current.MainPage.DisplayAlert(
+                    "Exito",
+                    "Se enviaron los Datos.",
+                    "Aceptar");
+            await navigationService.BackOnMaster();
         }
         void offLoading() {
-
+            IsRunning = false;
+            IsEnable = true;
         }
         void onLoading()
         {
-
+            IsRunning = true;
+            IsEnable = false;
         }
         #endregion
     }

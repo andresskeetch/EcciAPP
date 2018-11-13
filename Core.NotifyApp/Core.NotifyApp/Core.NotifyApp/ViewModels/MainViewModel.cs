@@ -144,6 +144,11 @@ namespace Core.NotifyApp.ViewModels
                     CrossLocalNotifications.Current.Show(
                         string.Format("{0} - {1}", noty.ScheduleAll.Class.ClassRoom.Name, noty.ScheduleAll.Class.Teacher.LongName),
                         noty.Description);
+
+                    if (Notification != null)
+                    {
+                        Notification.addNotification(noty);
+                    }
                 });
             });
         }

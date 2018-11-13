@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Core.NotifyApp.ViewModels
 {
-    class MapViewModel
+    public class MapViewModel
     {
+
     }
 }

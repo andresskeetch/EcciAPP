@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 
 namespace Core.NotifyApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SchedulePage : ContentPage
     {
         #region Services
@@ -14,7 +13,7 @@ namespace Core.NotifyApp.Views
         public SchedulePage ()
 		{
 			InitializeComponent ();
-            //schedule.CellDoubleTapped += Schedule_CellDoubleTapped;
+            schedule.CellDoubleTapped += Schedule_CellDoubleTapped;
             navigationService = new NavigationService();
         }
 

@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Core.NotifyApp.Views.NotificationPage"
-             BackgroundColor="{StaticResource FontColor}"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Notificaciones">
     <ContentPage.Content>
@@ -19,6 +18,7 @@
             <ListView
                 ItemsSource="{Binding Notifications}"
                 HasUnevenRows="True"
+                SeparatorVisibility="Default"
                 IsPullToRefreshEnabled="True"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
                 RefreshCommand="{Binding RefreshCommand}">
@@ -35,62 +35,28 @@
                                     Grid.Column="0"
                                     VerticalOptions="Center">
                                     <StackLayout
-                                        Orientation="Horizontal">
-                                        <Label
-                                            FontAttributes="Bold"
-                                            FontSize="Medium"
-                                            Text="{Binding Class.Name}"
-                                            TextColor="Black">
-                                        </Label>
-                                        <Label
-                                            FontAttributes="Bold"
-                                            FontSize="Medium"
-                                            Text="-"
-                                            TextColor="Black">
-                                        </Label>
-                                        <Label
-                                            FontAttributes="Bold"
-                                            FontSize="Medium"
-                                            Text="{Binding Class.Course.Name}"
-                                            TextColor="Black">
-                                        </Label>
-                                    </StackLayout>
-                                    <StackLayout
-                                        Orientation="Horizontal">
-                                        <Label
-                                            FontSize="Medium"
-                                            Text="Sede"
-                                            TextColor="Black">
-                                        </Label>
-                                        <Label
-                                            FontSize="Medium"
-                                            Text="{Binding Class.ClassRoom.Seat.Name}"
-                                            TextColor="Black">
-                                        </Label>
-                                        <Label
-                                            FontSize="Medium"
-                                            Text="-"
-                                            TextColor="Black">
-                                        </Label>
-                                        <Label
-                                            FontSize="Medium"
-                                            Text="{Binding Class.ClassRoom.Name}"
-                                            TextColor="Black">
-                                        </Label>
-                                    </StackLayout>
-                                    <StackLayout
                                         Orientation="Vertical">
                                         <Label
-                                            Text="{Binding DateString}"
+                                            FontSize="Small"
+                                            Text="{Binding Date}"
                                             TextColor="Black">
+                                        </Label>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Small"
+                                            Text="{Binding Person.LongName}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="{Binding Description}"
+                                            TextColor="{StaticResource MainColor}">
                                         </Label>
                                     </StackLayout>
                                 </StackLayout>
-                                <!--<Image
-                                    Grid.Column="1"
-                                    HorizontalOptions="End"
-                                    Source="ic_chevron_right">
-                                </Image>-->
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

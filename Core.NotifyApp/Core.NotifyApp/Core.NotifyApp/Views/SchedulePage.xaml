@@ -6,25 +6,22 @@
              Title="Horario"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms">
     <ContentPage.Content>
-        <StackLayout
-            BindingContext="{Binding Schedule}">
-            <syncfusion:SfSchedule x:Name="schedule" >
-                <!--<syncfusion:SfSchedule.ViewHeaderStyle>
-                    <syncfusion:ViewHeaderStyle>
-                    </syncfusion:ViewHeaderStyle>
-                </syncfusion:SfSchedule.ViewHeaderStyle>
-                <syncfusion:SfSchedule.AppointmentMapping
-                    >
-                    <syncfusion:ScheduleAppointmentMapping
+        <syncfusion:SfSchedule   BindingContext="{Binding Schedule}" x:Name="schedule" DataSource="{Binding Schedule}">
+            <syncfusion:SfSchedule.ViewHeaderStyle>
+                <syncfusion:ViewHeaderStyle>
+                </syncfusion:ViewHeaderStyle>
+            </syncfusion:SfSchedule.ViewHeaderStyle>
+            <syncfusion:SfSchedule.AppointmentMapping 
+                >
+                <syncfusion:ScheduleAppointmentMapping
                         
-			            SubjectMapping="EventName" 
-			            StartTimeMapping="Date"
-			            EndTimeMapping="DateTo"
-                        ColorMapping="Color">
-                    </syncfusion:ScheduleAppointmentMapping>
-                </syncfusion:SfSchedule.AppointmentMapping>-->
-            </syncfusion:SfSchedule>
-        </StackLayout>
-        
+			        SubjectMapping="EventName" 
+			        StartTimeMapping="Date"
+			        EndTimeMapping="DateTo"
+                    ColorMapping="Color">
+                </syncfusion:ScheduleAppointmentMapping>
+            </syncfusion:SfSchedule.AppointmentMapping>
+        </syncfusion:SfSchedule>
+
     </ContentPage.Content>
 </ContentPage> 

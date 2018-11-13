@@ -13,7 +13,7 @@ namespace Core.NotifyApp.ViewModels
         #region Attributes
         private ObservableCollection<Core.Models.Models.Notification> notifications;
         private bool isRefreshing;
-        private IEnumerable<Core.Models.Models.Notification> notificationsList;
+        private List<Core.Models.Models.Notification> notificationsList;
         #endregion
 
         #region Properties
@@ -38,12 +38,18 @@ namespace Core.NotifyApp.ViewModels
         #region Methods
         private void loadNotifications () {
             setRefreshingListview(true);
-            this.notificationsList = Core.Service.Communication.Notification.GetNotification(App.User.User.Person.PersonID);
-            this.Notifications = new ObservableCollection<Core.Models.Models.Notification>(this.notificationsList.OrderBy(f => f.Date));
+            this.notificationsList = Core.Service.Communication.Notification.GetNotification(App.User.User.Person.PersonID).ToList();
+            this.Notifications = new ObservableCollection<Core.Models.Models.Notification>(this.notificationsList.OrderByDescending(f => f.Date));
             setRefreshingListview(false);
         }
         void setRefreshingListview(bool value) {
             this.IsRefreshing = value;
+        }
+        public void addNotification(Core.Models.Models.Notification noty) {
+            setRefreshingListview(true);
+            this.notificationsList.Add(noty);
+            this.Notifications = new ObservableCollection<Core.Models.Models.Notification>(this.notificationsList.OrderByDescending(f => f.Date));
+            setRefreshingListview(false);
         }
         #endregion
 

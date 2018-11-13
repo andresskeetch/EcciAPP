@@ -2,13 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Core.NotifyApp.Views.MapPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Mapa">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Mapa"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            BindingContext="{Binding Map}">
+            <maps:Map
+                x:Name="MyMap"
+                IsShowingUser="False"
+                MapType="Street">
+            </maps:Map>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

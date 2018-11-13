@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.Core.NotifyApp">
-	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="Core.NotifyApp.Android"></application>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="NotyAPP.NotyAPP" android:installLocation="auto">
+	<uses-sdk />
+	<application android:label="NotyAPP" android:icon="@drawable/icon"></application>
+	<application android:label="NotyAPP.NotyAPP.Android">
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAQOIVsY9iyCItQAJu7DnnLnLqUXmhjxW8" />
+	</application>
 </manifest>

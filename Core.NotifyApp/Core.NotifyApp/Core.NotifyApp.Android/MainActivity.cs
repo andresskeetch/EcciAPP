@@ -10,7 +10,7 @@ using Plugin.LocalNotifications;
 
 namespace Core.NotifyApp.Droid
 {
-    [Activity(Label = "Core.NotifyApp", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "NotyAPP", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -24,7 +24,7 @@ namespace Core.NotifyApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
-
+            Xamarin.FormsMaps.Init(this, bundle);
             LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.logoEcci;
 
             

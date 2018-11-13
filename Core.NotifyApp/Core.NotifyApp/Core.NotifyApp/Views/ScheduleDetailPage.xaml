@@ -57,11 +57,13 @@
                 <Entry
                     Text="{Binding Description, Mode=TwoWay}" Placeholder="Descripcion">
                 </Entry>
-
+                <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}" >
+                </ActivityIndicator>
                 <Button
                     BackgroundColor="Blue"
                     Text="Modificar"
                     TextColor="White"
+                    IsEnabled="{Binding IsEnable, Mode=TwoWay}"
                     Command="{Binding updateCommand}"
                     >
                 </Button>
