@@ -10,7 +10,6 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Core.NotifyApp.Service;
 using Plugin.LocalNotifications;
-using Android.OS;
 
 namespace Core.NotifyApp.ViewModels
 {
